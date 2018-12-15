@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.projeto.musicplayer.view.PlayerOverviewController">
+	<children>
+		<BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<center>
+				<SplitPane dividerPositions="0.5" BorderPane.alignment="CENTER">
+					<items>
+						<AnchorPane>
+							<children>
+								<TableView fx:id="allMusicsTable" layoutX="-80.0" layoutY="80.0" onMouseClicked="#selectedMusicAll" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+									<columns>
+										<TableColumn fx:id="allMusicsColumn" maxWidth="1.7976931348623157E308" minWidth="80.0" prefWidth="247.0" text="Musics" />
+									</columns>
+								</TableView>
+							</children>
+						</AnchorPane>
+						<AnchorPane>
+							<children>
+								<TableView fx:id="currentPlayListTable" layoutX="-70.0" layoutY="121.0" onMouseClicked="#selectedMusicPlaylist" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+									<columns>
+										<TableColumn fx:id="currentPlayListColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="247.0">
+											<graphic>
+												<Label fx:id="currentPlayListTitle" alignment="CENTER" contentDisplay="CENTER" text="No Playlist" textAlignment="CENTER" />
+											</graphic>
+										</TableColumn>
+									</columns>
+								</TableView>
+							</children>
+						</AnchorPane>
+					</items>
+				</SplitPane>
+			</center>
+			<bottom>
+				<AnchorPane>
+					<children>
+						<ToolBar layoutX="2.0" layoutY="3.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="3.0">
+							<items>
+								<Button defaultButton="true" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#previous" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="3.0">
+									<graphic>
+										<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@resources/previous%20music.jpg" />
+											</image>
+										</ImageView>
+									</graphic>
+									<padding>
+										<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+									</padding>
+								</Button>
+								<Button defaultButton="true" mnemonicParsing="false" onMouseClicked="#play">
+									<graphic>
+										<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@resources/play%20music.jpg" />
+											</image>
+										</ImageView>
+									</graphic>
+									<padding>
+										<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+									</padding>
+								</Button>
+								<Button mnemonicParsing="false" onMouseClicked="#pause">
+									<graphic>
+										<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@resources/pause.jpg" />
+											</image>
+										</ImageView>
+									</graphic>
+									<padding>
+										<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+									</padding>
+								</Button>
+								<Button mnemonicParsing="false" onMouseClicked="#stop">
+									<graphic>
+										<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@resources/stop.jpg" />
+											</image>
+										</ImageView>
+									</graphic>
+									<padding>
+										<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+									</padding>
+								</Button>
+								<Button cacheHint="QUALITY" graphicTextGap="0.0" mnemonicParsing="false" onMouseClicked="#next" snapToPixel="false" textOverrun="CLIP">
+									<opaqueInsets>
+										<Insets />
+									</opaqueInsets>
+									<padding>
+										<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+									</padding>
+									<graphic>
+										<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@resources/next%20music.jpg" />
+											</image>
+										</ImageView>
+									</graphic>
+								</Button>
+							</items>
+						</ToolBar>
+						<Label fx:id="timeLabel" alignment="CENTER" layoutX="411.0" layoutY="7.0" text="Time/Total" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="7.0" />
+						<Slider fx:id="timeSlider" layoutX="375.0" layoutY="15.0" onDragDetected="#changePlayTime" onDragDone="#changePlayTime" onDragDropped="#changePlayTime" onDragExited="#changePlayTime" onDragOver="#changePlayTime" onMouseClicked="#changePlayTime" onMouseDragExited="#changePlayTime" onMouseDragOver="#changePlayTime" onMouseDragReleased="#changePlayTime" onMouseDragged="#changePlayTime" onMousePressed="#changePlayTime" onMouseReleased="#changePlayTime" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="3.0" />
+					</children>
+				</AnchorPane>
+			</bottom>
+			<left>
+				<AnchorPane>
+					<children>
+						<Button alignment="TOP_LEFT" layoutX="5.0" layoutY="48.0" mnemonicParsing="false" onAction="#addDirectory" text="New Folder" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@resources/add%20music.jpg" />
+									</image>
+								</ImageView>
+							</graphic>
+							<padding>
+								<Insets bottom="1.0" left="1.0" right="2.0" top="1.0" />
+							</padding>
+						</Button>
+						<Button alignment="TOP_LEFT" layoutX="10.0" layoutY="102.0" mnemonicParsing="false" onAction="#addMusic" text="New Music" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@resources/add%20music.jpg" />
+									</image>
+								</ImageView>
+							</graphic>
+							<padding>
+								<Insets bottom="1.0" left="1.0" right="2.0" top="1.0" />
+							</padding>
+						</Button>
+						<Label fx:id="currentMusicTitle" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" graphicTextGap="0.0" layoutX="23.0" layoutY="227.0" text="Music Name" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+						<TextField fx:id="searchMusic" layoutX="35.0" layoutY="236.0" onAction="#searchMusicText" onInputMethodTextChanged="#searchMusicText" onKeyPressed="#searchMusicText" onKeyReleased="#searchMusicText" onKeyTyped="#searchMusicText" prefColumnCount="8" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="181.0">
+							<contextMenu>
+								<ContextMenu fx:id="entriesPopup">
+									<items>
+										<MenuItem mnemonicParsing="false" text="Unspecified Action" />
+									</items>
+								</ContextMenu>
+							</contextMenu>
+						</TextField>
+						<Button layoutX="58.0" layoutY="279.0" mnemonicParsing="false" onAction="#searchMusic" onMouseClicked="#searchMusic" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="180.0">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@resources/search.jpg" />
+									</image>
+								</ImageView>
+							</graphic>
+							<padding>
+								<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+							</padding>
+						</Button>
+						<Button alignment="TOP_LEFT" layoutX="20.0" layoutY="112.0" mnemonicParsing="false" onAction="#removeFolder" text="Remove Folder" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@resources/remove.jpg" />
+									</image>
+								</ImageView>
+							</graphic>
+							<padding>
+								<Insets bottom="1.0" left="1.0" right="2.0" top="1.0" />
+							</padding>
+						</Button>
+						<Button alignment="TOP_LEFT" layoutX="8.0" layoutY="130.0" mnemonicParsing="false" onAction="#removeMusic" text="Remove Music" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="130.0">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@resources/remove.jpg" />
+									</image>
+								</ImageView>
+							</graphic>
+							<padding>
+								<Insets bottom="1.0" left="1.0" right="2.0" top="1.0" />
+							</padding>
+						</Button>
+						<Button alignment="TOP_LEFT" layoutX="26.0" layoutY="334.0" mnemonicParsing="false" onAction="#removeFromPlaylist" text="Remove from PlayList" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="280.0">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@resources/remove.jpg" />
+									</image>
+								</ImageView>
+							</graphic>
+							<padding>
+								<Insets bottom="1.0" left="1.0" right="2.0" top="1.0" />
+							</padding>
+						</Button>
+						<Button alignment="TOP_LEFT" layoutX="14.0" layoutY="238.0" mnemonicParsing="false" onAction="#addToPlaylist" text="Add to PlayList" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="240.0">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@resources/add%20music.jpg" />
+									</image>
+								</ImageView>
+							</graphic>
+							<padding>
+								<Insets bottom="1.0" left="1.0" right="2.0" top="1.0" />
+							</padding>
+						</Button>
+                  <Button alignment="TOP_LEFT" layoutX="8.0" layoutY="360.0" mnemonicParsing="false" onAction="#newUser" text="Register User" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="350.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/remove.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="2.0" top="1.0" />
+                     </padding>
+                  </Button>
+					</children>
+				</AnchorPane>
+			</left>
+			<right>
+				<AnchorPane BorderPane.alignment="CENTER">
+					<children>
+						<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<AnchorPane>
+									<children>
+										<Label fx:id="username" layoutX="12.0" layoutY="13.0" text="UserName" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+										<Button alignment="CENTER" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="10.0" layoutY="82.0" mnemonicParsing="false" onAction="#logoff" prefHeight="25.0" prefWidth="70.0" text="Logoff" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="70.0" />
+										<ImageView fitHeight="100.0" fitWidth="100.0" layoutX="129.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" x="-5.0" y="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+											<image>
+												<Image url="@resources/login.jpg" />
+											</image>
+										</ImageView>
+										<Label fx:id="userType" layoutX="27.0" layoutY="40.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="40.0" />
+									</children>
+								</AnchorPane>
+								<VBox />
+								<Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#removePlayList" prefHeight="32.0" prefWidth="198.0" text="Remove this PlayList">
+									<graphic>
+										<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@resources/remove.jpg" />
+											</image>
+										</ImageView>
+									</graphic>
+									<padding>
+										<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+									</padding>
+									<VBox.margin>
+										<Insets />
+									</VBox.margin>
+								</Button>
+								<AnchorPane prefHeight="400.0" prefWidth="176.0" VBox.vgrow="ALWAYS">
+									<children>
+										<TableView fx:id="playListTable" layoutX="14.0" layoutY="83.0" onMouseClicked="#selectedPlaylist" prefHeight="400.0" prefWidth="214.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+											<columns>
+												<TableColumn fx:id="playListsColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="200.0" text="PlayLists" />
+											</columns>
+										</TableView>
+									</children>
+								</AnchorPane>
+								<TextField fx:id="playsListName" prefColumnCount="8" />
+								<Button alignment="TOP_LEFT" layoutX="10.0" layoutY="120.0" mnemonicParsing="false" onAction="#newPlayList" prefHeight="32.0" prefWidth="198.0" text="New PlayList">
+									<graphic>
+										<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@resources/add%20playlist.jpg" />
+											</image>
+										</ImageView>
+									</graphic>
+									<padding>
+										<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+									</padding>
+								</Button>
+							</children>
+						</VBox>
+					</children>
+				</AnchorPane>
+			</right>
+		</BorderPane>
+	</children>
+</AnchorPane>

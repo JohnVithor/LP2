@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.projeto.musicplayer.view.RegisterOverviewController">
+	<children>
+		<Label layoutX="200.0" layoutY="55.0" text="UserName" />
+		<TextField fx:id="username" layoutX="200.0" layoutY="76.0" promptText="USERNAME" />
+		<Label layoutX="200.0" layoutY="106.0" text="Password" />
+		<PasswordField fx:id="password" layoutX="200.0" layoutY="127.0" promptText="PASSWORD" />
+		<Label layoutX="200.0" layoutY="158.0" text="Confirm Password" />
+		<PasswordField fx:id="confirmPassword" layoutX="200.0" layoutY="179.0" promptText="PASSWORD" />
+		<CheckBox fx:id="checkBox" layoutX="240.0" layoutY="214.0" mnemonicParsing="false" text="Vip User ?" />
+		<Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#register" text="Register" textAlignment="CENTER" />
+		<Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" layoutX="200.0" layoutY="250.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" textAlignment="CENTER" />
+	</children>
+</AnchorPane>

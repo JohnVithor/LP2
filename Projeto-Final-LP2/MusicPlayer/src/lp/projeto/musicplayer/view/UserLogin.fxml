@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.projeto.musicplayer.view.LoginController">
+	<children>
+		<Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="260.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#login" text="Login" textAlignment="CENTER" />
+		<Label layoutX="207.0" layoutY="146.0" text="UserName" />
+		<ImageView layoutX="32.0" layoutY="21.0" pickOnBounds="true" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+			<image>
+				<Image url="@resources/play%20music.jpg" />
+			</image>
+		</ImageView>
+		<TextField fx:id="username" layoutX="204.0" layoutY="166.0" promptText="USERNAME" text="ADMIN" />
+		<PasswordField fx:id="password" layoutX="202.0" layoutY="223.0" promptText="PASSWORD" />
+		<Label layoutX="206.0" layoutY="202.0" text="Password" />
+	</children>
+</AnchorPane>
